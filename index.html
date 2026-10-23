@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A proposed 30-day operational continuity pilot for Nigerian SMEs by Diamond Anyanwu.">
+  <title>PowerReady Ops | Diamond Anyanwu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #111A24;
+      --deep-navy: #0A1118;
+      --body: #2B333D;
+      --ivory: #F7F5F0;
+      --surface: #EAE7DF;
+      --rule: #D1CDC3;
+      --teal: #266675;
+      --amber: #E27D2B;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--body);
+      font: 400 18px/1.6 'Inter', sans-serif;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { color: var(--navy); line-height: 1.15; }
+    h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
+    h1 { font-size: clamp(3.2rem, 8vw, 5.4rem); margin-bottom: 20px; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+    h3 { font-size: 1.35rem; margin-bottom: 12px; }
+    a { color: var(--teal); }
+    .wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+    .hero {
+      background: var(--deep-navy);
+      color: var(--ivory);
+      padding: 104px 0 86px;
+    }
+    .hero h1 { color: var(--ivory); }
+    .hero .lede { max-width: 720px; font-size: clamp(1.2rem, 2.5vw, 1.55rem); opacity: .88; margin-bottom: 34px; }
+    .motif { width: 32px; height: 4px; background: var(--amber); margin-bottom: 24px; }
+    .eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .status {
+      display: inline-block;
+      color: var(--amber);
+      border: 1px solid var(--amber);
+      padding: 8px 13px;
+      font-size: .8rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .hero-meta { margin-top: 58px; color: rgba(247,245,240,.72); font-size: .95rem; }
+    main section { padding: 82px 0; border-bottom: 1px solid var(--rule); }
+    .section-label { color: var(--teal); font-size: .78rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 14px; }
+    .intro { max-width: 760px; margin-bottom: 38px; }
+    .evidence-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 62px; align-items: center; }
+    .stat { font: 700 clamp(5.4rem, 12vw, 8rem)/.95 'Playfair Display', Georgia, serif; color: var(--amber); letter-spacing: -.05em; }
+    .stat-copy { max-width: 460px; font-size: 1.25rem; font-weight: 600; color: var(--navy); margin: 18px 0 10px; }
+    .fine { font-size: .93rem; color: #5F656B; }
+    .source-links { margin-top: 18px; font-size: .9rem; }
+    .source-links a { display: inline-block; margin-right: 16px; }
+    .fact-note { border-left: 3px solid var(--teal); padding: 24px 26px; background: var(--surface); }
+    .fact-note p:last-child { margin-bottom: 0; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+    .step { border-top: 2px solid var(--teal); padding-top: 18px; }
+    .step-no { display: block; color: var(--amber); font-weight: 700; font-size: .82rem; letter-spacing: .12em; margin-bottom: 14px; }
+    .step p { font-size: 1rem; margin-bottom: 0; }
+    .deliverables { display: grid; grid-template-columns: 1fr 1fr; gap: 0 54px; margin-top: 34px; }
+    .deliverable { padding: 19px 0; border-top: 1px solid var(--rule); }
+    .deliverable strong { color: var(--navy); }
+    .pilot { background: var(--surface); }
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 38px; }
+    .phase { border-top: 3px solid var(--amber); padding-top: 20px; }
+    .phase .days { font-size: .82rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: .1em; }
+    .phase ul { padding-left: 20px; margin-bottom: 0; }
+    .phase li { margin: 8px 0; }
+    .measure-note { margin-top: 34px; padding-top: 22px; border-top: 1px solid #BDB9AF; }
+    .measure-note strong { color: var(--navy); }
+    .profile { background: var(--navy); color: var(--ivory); }
+    .profile h2, .profile h3 { color: var(--ivory); }
+    .profile-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 60px; align-items: start; margin-top: 34px; }
+    .profile-name { font: 700 2.4rem/1.15 'Playfair Display', Georgia, serif; }
+    .identity { color: rgba(247,245,240,.75); font-size: 1rem; }
+    .cap-list { list-style: none; padding: 0; margin: 0; }
+    .cap-list li { padding: 14px 0; border-top: 1px solid rgba(247,245,240,.2); }
+    .boundary { margin-top: 28px; border-left: 3px solid var(--amber); padding: 14px 20px; background: rgba(247,245,240,.06); }
+    .cta { text-align: center; }
+    .cta p { max-width: 660px; margin: 0 auto; }
+    .button {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 14px 24px;
+      background: var(--amber);
+      color: var(--deep-navy);
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button:hover, .button:focus-visible { text-decoration: underline; }
+    footer { background: var(--deep-navy); color: rgba(247,245,240,.72); padding: 28px 0; font-size: .85rem; }
+    footer p { margin: 0; }
+    footer a { color: var(--ivory); }
+    @media (max-width: 760px) {
+      body { font-size: 16px; }
+      .wrap { width: min(100% - 36px, 560px); }
+      .hero { padding: 76px 0 62px; }
+      main section { padding: 60px 0; }
+      .evidence-grid, .profile-grid { grid-template-columns: 1fr; gap: 28px; }
+      .grid-4 { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+      .timeline { grid-template-columns: 1fr; gap: 26px; }
+      .deliverables { grid-template-columns: 1fr; }
+      .hero-meta { margin-top: 38px; }
+    }
+    @media (max-width: 420px) {
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="motif" aria-hidden="true"></div>
+      <p class="eyebrow">A proposed operations concept</p>
+      <h1>PowerReady Ops</h1>
+      <p class="lede">A proposed 30-day operational continuity pilot to help a Nigerian small business prepare its workflows for electricity interruptions.</p>
+      <span class="status">Proposed pilot · not yet launched</span>
+      <p class="hero-meta">Diamond Anyanwu · Lagos, Nigeria · Remote-ready</p>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="evidence-heading">
+      <div class="wrap">
+        <p class="section-label">The evidence</p>
+        <div class="evidence-grid">
+          <div>
+            <div class="stat">82.5%</div>
+            <p class="stat-copy" id="evidence-heading">of surveyed Nigerian firms experienced electrical outages in 2025.</p>
+            <p class="fine">The World Bank Enterprise Survey interviewed 1,043 firms between February and September 2025.</p>
+            <div class="source-links">
+              <a href="https://www.enterprisesurveys.org/en/data/exploreeconomies/2025/nigeria" target="_blank" rel="noreferrer">Survey profile ↗</a>
+              <a href="https://api.worldbank.org/v2/country/NGA/indicator/IC.ELC.OUTG.ZS?format=json" target="_blank" rel="noreferrer">World Bank indicator data ↗</a>
+            </div>
+          </div>
+          <aside class="fact-note">
+            <h3>Why this concept?</h3>
+            <p>The survey establishes that many firms experienced outages. PowerReady Ops is a proposed way to organize the business workflows around that challenge—not a claim that outages or their effects have been solved.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="approach-heading">
+      <div class="wrap">
+        <p class="section-label">The proposed approach</p>
+        <h2 id="approach-heading">Turn disruption into a documented response.</h2>
+        <p class="intro">PowerReady Ops is a non-technical operations-support concept. The pilot would help one SME map critical routines, assign next steps, keep a simple incident record, and coordinate with the client’s chosen qualified technical providers when needed.</p>
+        <div class="grid-4">
+          <article class="step"><span class="step-no">01 · MAP</span><h3>Critical workflows</h3><p>Identify which tasks, tools, and customer commitments need a continuity plan.</p></article>
+          <article class="step"><span class="step-no">02 · PREPARE</span><h3>Simple routines</h3><p>Document who does what during an interruption, using client-approved procedures.</p></article>
+          <article class="step"><span class="step-no">03 · COORDINATE</span><h3>Clear handoffs</h3><p>Organize contacts and requests for qualified maintenance or backup-power providers.</p></article>
+          <article class="step"><span class="step-no">04 · REVIEW</span><h3>Useful records</h3><p>Log incidents and review the data with the business to refine its procedures.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="deliverables-heading">
+      <div class="wrap">
+        <p class="section-label">Possible pilot outputs</p>
+        <h2 id="deliverables-heading">Practical tools the team can keep using.</h2>
+        <div class="deliverables">
+          <div class="deliverable"><strong>Continuity playbook</strong><br>Key workflows, roles, and client-approved response steps.</div>
+          <div class="deliverable"><strong>Outage and downtime log</strong><br>A simple, consistent record for operational review.</div>
+          <div class="deliverable"><strong>Readiness checklist</strong><br>Routine checks for contacts, essential supplies, and agreed preparations.</div>
+          <div class="deliverable"><strong>Communication templates</strong><br>Draft staff and customer updates for the business to review and approve.</div>
+          <div class="deliverable"><strong>Provider coordination sheet</strong><br>Contact and escalation details for the client’s chosen qualified providers.</div>
+          <div class="deliverable"><strong>Pilot review</strong><br>A short summary of observations and proposed next improvements.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pilot" aria-labelledby="pilot-heading">
+      <div class="wrap">
+        <p class="section-label">Suggested structure</p>
+        <h2 id="pilot-heading">A proposed 30-day pilot.</h2>
+        <p class="intro">Scope, timing, and measures would be agreed with a participating SME before the pilot begins.</p>
+        <div class="timeline">
+          <article class="phase"><p class="days">Days 1–7 · Understand</p><h3>Map & baseline</h3><ul><li>Map selected workflows</li><li>Agree roles and escalation contacts</li><li>Start a baseline incident log</li></ul></article>
+          <article class="phase"><p class="days">Days 8–25 · Test</p><h3>Use & adjust</h3><ul><li>Introduce the playbook and checklists</li><li>Record interruptions and response steps</li><li>Coordinate agreed provider handoffs</li></ul></article>
+          <article class="phase"><p class="days">Days 26–30 · Review</p><h3>Learn & decide</h3><ul><li>Review the recorded measures</li><li>Revise the proposed procedures</li><li>Decide whether further support is useful</li></ul></article>
+        </div>
+        <p class="measure-note"><strong>Measures to agree:</strong> outage count and duration, affected workflows, delayed tasks, checklist completion, and response/communication steps recorded. No savings or improvement is assumed in advance.</p>
+      </div>
+    </section>
+
+    <section class="profile" aria-labelledby="profile-heading">
+      <div class="wrap">
+        <p class="section-label">The person behind the concept</p>
+        <h2 id="profile-heading">Operations support, grounded in clear systems.</h2>
+        <div class="profile-grid">
+          <div>
+            <p class="profile-name">Diamond Anyanwu</p>
+            <p class="identity">Operations Manager · Virtual Assistant & Business Support · Social Media & Brand · AI Data Quality · Remote-ready<br>Lagos, Nigeria</p>
+          </div>
+          <div>
+            <ul class="cap-list">
+              <li>Organizing workflows, schedules, records, and follow-up.</li>
+              <li>Preparing clear business and customer communications.</li>
+              <li>Maintaining structured logs and checking data quality.</li>
+            </ul>
+            <p class="boundary"><strong>Scope boundary:</strong> This is a proposed operations-support pilot, not electrical engineering or installation. Technical assessments, repairs, and power-system work must be handled by appropriately qualified providers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-heading">
+      <div class="wrap">
+        <p class="section-label">Next step</p>
+        <h2 id="cta-heading">Explore whether a pilot fits.</h2>
+        <p>The proposed first step is to discuss one SME’s critical workflows, agree a small pilot scope, and confirm the measures before starting.</p>
+        <a class="button" href="https://www.linkedin.com/in/diamondanyanwu/" target="_blank" rel="noreferrer">Connect with Diamond on LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>PowerReady Ops is a proposed 30-day pilot concept—not a launched service or proven result. © 2026 Diamond Anyanwu.</p>
+    </div>
+  </footer>
+</body>
+</html>
