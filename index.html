@@ -119,6 +119,17 @@
     @media (max-width: 420px) {
       .grid-4 { grid-template-columns: 1fr; }
     }
+
+    /* Motion refresh: continuity is shown as a steady, readable sequence. */
+    @media (prefers-reduced-motion: no-preference){
+      .hero h1,.hero .intro,.hero .button{animation:power-arrive .75s cubic-bezier(.2,.7,.2,1) both}.hero h1{animation-delay:.08s}.hero .intro{animation-delay:.16s}.hero .button{animation-delay:.24s}
+      .step,.deliverable,.phase{animation:power-rise .65s ease both}.step:nth-child(2),.deliverable:nth-child(2),.phase:nth-child(2){animation-delay:.1s}.step:nth-child(3),.deliverable:nth-child(3),.phase:nth-child(3){animation-delay:.2s}.step:nth-child(4),.deliverable:nth-child(4){animation-delay:.3s}.deliverable:nth-child(5){animation-delay:.4s}.deliverable:nth-child(6){animation-delay:.5s}
+      .status,.pilot,.profile{animation:power-fade .8s ease both}.step,.deliverable,.phase{transition:transform .22s ease,box-shadow .22s ease}.step:hover,.deliverable:hover,.phase:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(16,32,42,.1)}
+    }
+    @keyframes power-arrive{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+    @keyframes power-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    @keyframes power-fade{from{opacity:0}to{opacity:1}}
+
   </style>
 </head>
 <body>
